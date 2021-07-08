@@ -7,11 +7,11 @@ namespace RestAspNET5.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class CalculatorController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<CalculatorController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public CalculatorController(ILogger<CalculatorController> logger)
         {
             _logger = logger;
         }
