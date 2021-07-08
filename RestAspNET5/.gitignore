@@ -79,4 +79,5 @@ fabric.properties
 *.iml
 out
 gen
-RestAspNET5/bin
+RestAspNET5/bin/**
+RestAspNET5/obj/**
