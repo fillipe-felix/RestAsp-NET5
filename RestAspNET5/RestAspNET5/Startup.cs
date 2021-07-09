@@ -1,16 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using RestAspNET5.Model.Context;
 using RestAspNET5.Services;
 using RestAspNET5.Services.Implemetations;
 
@@ -29,6 +26,10 @@ namespace RestAspNET5
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            
+            var connectionString = Configuration.GetConnectionString("MySQLConnectionString");
+            var serverVersion = new MySqlServerVersion(new Version(5, 7,0));
+            services.AddDbContext<MySqlContext>(options => options.UseMySql(connectionString, serverVersion));
 
             //Dependency injection
             services.AddScoped<IPersonService, PersonServiceImplementation>();
