@@ -27,3 +27,10 @@ C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\obj\Debug\net5.0\R
 C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\obj\Debug\net5.0\ref\RestAspNET5.dll
 C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\obj\Debug\net5.0\RestAspNET5.pdb
 C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\obj\Debug\net5.0\RestAspNET5.genruntimeconfig.cache
+C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll

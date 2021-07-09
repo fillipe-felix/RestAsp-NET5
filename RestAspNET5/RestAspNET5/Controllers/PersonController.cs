@@ -56,7 +56,7 @@ namespace RestAspNET5.Controllers
                 return BadRequest();
             }
 
-            return Ok(_personService.Update(person));
+            return Ok(_personService.Update(id, person));
         }
 
         [HttpDelete("{id}")]
