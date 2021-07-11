@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ULFee+IHz1JEGYl7oXvusDXgDfxU3Ey9NzeWOCqZNQufDMRy6qRmsLgKgGblSrSyIBgzLkXsDMaM5wTBWl15aQ==",
+  "dgSpecHash": "w2FAiANXb7NCHR5CQ2jFcrbOR8UmyseKr7ZwiKyWc5QVVVIo5HRgdMsqnZRa/ttgLeI8oEXpB62e1WtM2frdLw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Fillipe\\Desktop\\RestAsp-NET5\\RestAspNET5\\RestAspNET5\\RestAspNET5.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Fillipe\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "C:\\Users\\Fillipe\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.7\\microsoft.entityframeworkcore.5.0.7.nupkg.sha512",
     "C:\\Users\\Fillipe\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.7\\microsoft.entityframeworkcore.abstractions.5.0.7.nupkg.sha512",
     "C:\\Users\\Fillipe\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.7\\microsoft.entityframeworkcore.analyzers.5.0.7.nupkg.sha512",

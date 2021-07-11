@@ -34,3 +34,4 @@ C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\M
 C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\MySqlConnector.dll
 C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Fillipe\Desktop\RestAsp-NET5\RestAspNET5\RestAspNET5\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll

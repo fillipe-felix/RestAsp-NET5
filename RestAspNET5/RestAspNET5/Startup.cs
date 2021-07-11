@@ -31,6 +31,8 @@ namespace RestAspNET5
             var serverVersion = new MySqlServerVersion(new Version(5, 7,0));
             services.AddDbContext<MySqlContext>(options => options.UseMySql(connectionString, serverVersion));
 
+            services.AddApiVersioning();
+
             //Dependency injection
             services.AddScoped<IPersonService, PersonServiceImplementation>();
             
