@@ -3,93 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using RestAspNET5.Model;
 using RestAspNET5.Model.Context;
+using RestAspNET5.Repository;
 
 namespace RestAspNET5.Services.Implemetations
 {
     public class PersonServiceImplementation : IPersonService
     {
-        private MySqlContext _context;
+        private readonly IPersonRepository _repository;
 
-        public PersonServiceImplementation(MySqlContext context)
+        public PersonServiceImplementation(IPersonRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public Person Create(Person person)
         {
-            try
-            {
-                _context.Add(person);
-                _context.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-            return person;
+            
+            return _repository.Create(person);
         }
 
         public Person FindById(long id)
         {
-            return _context.Persons.SingleOrDefault(p => p.Id.Equals(id));
+            return _repository.FindById(id);
         }
 
         public List<Person> FindAll()
         {
-            return _context.Persons.ToList();
+            return _repository.FindAll();
         }
 
         public Person Update(long id, Person person)
         {
-            if (!Exists(id))
-            {
-                return new Person();
-            }
-            
-            var result = _context.Persons.SingleOrDefault(p => p.Id.Equals(id));
-            person.Id = id;
-
-            if (result != null)
-            {
-                try
-                {
-                    _context.Entry(result).CurrentValues.SetValues(person);
-                    _context.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-            }
-
-            return person;
+            return _repository.Update(id, person);
         }
 
         public void Delete(long id)
         {
-            var result = _context.Persons.SingleOrDefault(p => p.Id.Equals(id));
-
-            if (result != null)
-            {
-                try
-                {
-                    _context.Persons.Remove(result);
-                    _context.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-            }
-        }
-
-        private bool Exists(long id)
-        {
-            return _context.Persons.Any(p => p.Id.Equals(id));
+            _repository.Delete(id);
         }
     }
 }

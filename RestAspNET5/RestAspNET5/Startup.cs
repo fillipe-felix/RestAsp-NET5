@@ -1,5 +1,4 @@
 using System;
-using System.Data.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RestAspNET5.Model.Context;
+using RestAspNET5.Repository;
+using RestAspNET5.Repository.Implemetations;
 using RestAspNET5.Services;
 using RestAspNET5.Services.Implemetations;
 
@@ -35,6 +36,7 @@ namespace RestAspNET5
 
             //Dependency injection
             services.AddScoped<IPersonService, PersonServiceImplementation>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
             
             services.AddSwaggerGen(c =>
             {
