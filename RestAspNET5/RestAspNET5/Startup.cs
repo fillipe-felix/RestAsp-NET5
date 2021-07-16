@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,22 +7,33 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using MySqlConnector;
 using RestAspNET5.Model.Context;
 using RestAspNET5.Repository;
 using RestAspNET5.Repository.Implemetations;
 using RestAspNET5.Services;
 using RestAspNET5.Services.Implemetations;
+using Serilog;
+using Serilog.Core;
 
 namespace RestAspNET5
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        
+        public IWebHostEnvironment Environment { get; }
+        
+        public IConfiguration Configuration { get; }
+        
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
-        }
+            Environment = environment;
 
-        public IConfiguration Configuration { get; }
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .CreateLogger();
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -31,6 +43,11 @@ namespace RestAspNET5
             var connectionString = Configuration.GetConnectionString("MySQLConnectionString");
             var serverVersion = new MySqlServerVersion(new Version(5, 7,0));
             services.AddDbContext<MySqlContext>(options => options.UseMySql(connectionString, serverVersion));
+            
+            if (Environment.IsDevelopment())
+            {
+                MigrateDatabase(connectionString);
+            }
 
             services.AddApiVersioning();
 
@@ -61,6 +78,25 @@ namespace RestAspNET5
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+        }
+        
+        private void MigrateDatabase(string connectionString)
+        {
+            try
+            {
+                var evolveConnection = new MySqlConnection(connectionString);
+                var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
+                {
+                    Locations = new List<string> {"db/migrations", "db/dataset"},
+                    IsEraseDisabled = true,
+                };
+                
+                evolve.Migrate();
+            }
+            catch (Exception e)
+            {
+                Log.Error("Database migration failed", e);
+            }
         }
     }
 }
