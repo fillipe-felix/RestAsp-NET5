@@ -54,6 +54,8 @@ namespace RestAspNET5
             //Dependency injection
             services.AddScoped<IPersonService, PersonServiceImplementation>();
             services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
+            services.AddScoped<IBooksService, BookServiceImplementation>();
+            services.AddScoped<IBookRepository, BookRepositoryImplementation>();
             
             services.AddSwaggerGen(c =>
             {
