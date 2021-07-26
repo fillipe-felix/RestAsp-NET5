@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using RestAspNET5.Model;
-using RestAspNET5.Repository;
+using RestAspNET5.Repository.Generic;
 
 namespace RestAspNET5.Services.Implemetations
 {
     public class BookServiceImplementation : IBooksService
     {
 
-        private readonly IBookRepository _bookRepository;
+        private readonly IRepository<Books> _bookRepository;
 
-        public BookServiceImplementation(IBookRepository bookRepository)
+        public BookServiceImplementation(IRepository<Books> bookRepository)
         {
             _bookRepository = bookRepository;
         }

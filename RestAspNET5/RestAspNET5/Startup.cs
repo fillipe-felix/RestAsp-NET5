@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using MySqlConnector;
 using RestAspNET5.Model.Context;
 using RestAspNET5.Repository;
+using RestAspNET5.Repository.Generic;
 using RestAspNET5.Repository.Implemetations;
 using RestAspNET5.Services;
 using RestAspNET5.Services.Implemetations;
@@ -56,6 +57,7 @@ namespace RestAspNET5
             services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
             services.AddScoped<IBooksService, BookServiceImplementation>();
             services.AddScoped<IBookRepository, BookRepositoryImplementation>();
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             
             services.AddSwaggerGen(c =>
             {
